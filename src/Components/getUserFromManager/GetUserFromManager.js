@@ -2,17 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import allActions from "../../redux";
 import styles from "./GetUserFromManager.module.css";
+import { useHistory } from "react-router";
+
 var correctId = 0;
 const GetUserFromManager = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const getUsers = useSelector((state) => state.getUserReducer);
   const users = getUsers?.userData?.users?.data;
+
   const [state, setState] = useState("");
   const [updateUser, setUpdateUser] = useState({
     firstName: "",
     lastName: "",
     email: "",
   });
+
   const delUser = (id) => {
     dispatch(allActions.deleteUserAction.deleteUserData(id));
     setState(id);
@@ -40,53 +45,64 @@ const GetUserFromManager = () => {
     dispatch(allActions.getUserAction.getUserData());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state]);
+
   return (
     <div>
       <div className="container">
-        <table className={styles.customers}>
-          <tbody>
-            <tr>
-              <th>FirstName</th>
-              <th>LastName</th>
-              <th>Email</th>
-              <th>Actions</th>
-            </tr>
+        <h2 className="text-center mt-5">Users</h2>
+        <span>
+          <button
+            className="back"
+            onClick={() => {
+              history.goBack();
+            }}
+          >
+            back
+          </button>
+        </span>
+        <div className="table-responsive">
+          <table className={`${styles.customers} mt-4`}>
+            <tbody className="text-center">
+              <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Actions</th>
+              </tr>
 
-            {users?.map((value, id) => {
-              return (
-                <tr key={id}>
-                  <td>{value.firstName}</td>
-                  <td>{value.lastName}</td>
-                  <td>{value.email}</td>
-                  <td>
-                    <button
-                      className="btn btn-primary"
-                      onClick={() => {
-                        delUser(value.id);
-                      }}
-                    >
-                      Delete
-                    </button>
-                    <button
-                      className="btn btn-primary"
-                      // onClick={() => {
-                      //   delUser(value.id);
-                      // }}
-                      onClick={() => {
-                        editHandler(value.id);
-                      }}
-                    >
-                      Edit
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+              {users?.map((value, id) => {
+                return (
+                  <tr key={id}>
+                    <td>{value.firstName}</td>
+                    <td>{value.lastName}</td>
+                    <td>{value.email}</td>
+                    <td>
+                      <button
+                        className="btn-edit"
+                        onClick={() => {
+                          editHandler(value.id);
+                        }}
+                      >
+                        Edit
+                      </button>
+                      <button
+                        className="btn-delete"
+                        onClick={() => {
+                          delUser(value.id);
+                        }}
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
         <br />
         <div className={styles.updatebox}>
-          <h2>Update</h2>
+          <h2 className="text-center">Update Users</h2>
           <form
             onSubmit={(event) => {
               event.preventDefault();

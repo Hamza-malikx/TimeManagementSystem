@@ -29,7 +29,6 @@ const loginFailure = (error) => {
 const postLogin = (loginState, history) => {
   return async (dispatch) => {
     try {
-      // console.log("NAq", dispatch);
       dispatch(loginRequest);
       const config = {
         headers: {
@@ -40,12 +39,6 @@ const postLogin = (loginState, history) => {
       var res = await axios.post(api, loginState, config);
       const { data } = res;
       dispatch(loginSuccess(res));
-      console.log("ab", loginState);
-      // localStorage.setItem("auth", JSON.stringify(res));
-      // axios.defaults.headers.common[
-      //   "Authorization"
-      // ] = `Bearer ${data.token_type}`;
-      console.log("Successful Login");
       if (data.user.roles[0].name === "manager") {
         history.push("/manager");
       } else if (data.user.roles[0].name === "admin") {

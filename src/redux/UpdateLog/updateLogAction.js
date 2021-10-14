@@ -1,35 +1,35 @@
 import axios from "axios";
 import {
-  DELETE_USER_REQUEST,
-  DELETE_USER_SUCCESS,
-  DELETE_USER_FAILURE,
-} from "./deleteUserType";
-const deleteUserRequest = () => {
+  UPDATE_LOG_REQUEST,
+  UPDATE_LOG_SUCCESS,
+  UPDATE_LOG_FAILURE,
+} from "./updateLogType.js";
+const updateLogRequest = () => {
   return {
-    type: DELETE_USER_REQUEST,
+    type: UPDATE_LOG_REQUEST,
   };
 };
 
-const deleteUserSuccess = (userData) => {
+const updateLogSuccess = (userData) => {
   return {
-    type: DELETE_USER_SUCCESS,
+    type: UPDATE_LOG_SUCCESS,
     payload: userData,
   };
 };
 
-const deleteUserFailure = (error) => {
+const updateLogFailure = (error) => {
   return {
-    type: DELETE_USER_FAILURE,
+    type: UPDATE_LOG_FAILURE,
     payload: error,
   };
 };
 
-const deleteUserData = (id) => {
+const updateLogData = (data, id) => {
   let token = JSON.parse(localStorage.getItem("auth"));
   return (dispatch) => {
-    dispatch(deleteUserRequest);
+    dispatch(updateLogRequest);
     axios
-      .delete(`http://34.210.129.167/api/users/${id}`, {
+      .put(`http://34.210.129.167/api/work-logs/${id}`, data, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token.user.token}`,
@@ -37,19 +37,18 @@ const deleteUserData = (id) => {
       })
       .then((response) => {
         const userData = response.data;
-        dispatch(deleteUserSuccess(userData));
+        dispatch(updateLogSuccess(userData));
       })
       .catch((error) => {
         const errorMsg = error.message;
-        dispatch(deleteUserFailure(errorMsg));
+        dispatch(updateLogFailure(errorMsg));
       });
   };
 };
-
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  deleteUserRequest,
-  deleteUserSuccess,
-  deleteUserFailure,
-  deleteUserData,
+  updateLogRequest,
+  updateLogSuccess,
+  updateLogFailure,
+  updateLogData,
 };

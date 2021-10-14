@@ -26,14 +26,8 @@ const SignUpData = (userState, history) => {
       var res = await axios.post(api, userState);
       const { data } = res;
       dispatch(signUpSuccess(data));
-
-      console.log("success");
-      console.log(data.user.roles[0].name);
-      // data.user.roles[0].name === "manager"
-      //   ? history.push("/manager")
-      //   : console.log("error");
+      alert("Account created Successfully");
     } catch (error) {
-      console.error(error);
       const msg = error.message;
       dispatch(signUpFailure(msg));
     }

@@ -34,12 +34,13 @@ const Admin = () => {
                   password: "",
                   password_confirmation: "",
                 });
-                console.log("User created");
               }}
               className={styles.box}
             >
               <h1>Admin Dashboard</h1>
-              <p className={styles.text_muted}>Please enter your Infos!</p>
+              <p className={styles.text_muted}>
+                Enter Infos To Create Manager and User !
+              </p>
               <input
                 type="text"
                 name=""
@@ -88,7 +89,7 @@ const Admin = () => {
               <input
                 type="text"
                 name=""
-                placeholder="user"
+                placeholder="Enter UserRole"
                 // disabled
                 onChange={(e) => {
                   const userType = e.target.value;

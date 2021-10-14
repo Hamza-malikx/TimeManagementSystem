@@ -1,15 +1,11 @@
 import {
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGIN_FAILURE,
-  LOGOUT_SUCCESS,
-  LOGOUT_FAIL,
-} from "./loginType";
+  PREFFERED_HOURS_REQUEST,
+  PREFFERED_HOURS_SUCCESS,
+  PREFFERED_HOURS_FAILURE,
+} from "./prefferedHoursType";
 import axios from "axios";
 const userState = {
-  user: [],
-  error: "",
-  ab: false,
+  number: [],
   isLoggedIn: false,
 };
 //helper function to create localStorage
@@ -27,31 +23,21 @@ const getAuthState = () => {
 const newAuth = getAuthState();
 const loginReducer = (state = newAuth, action) => {
   switch (action.type) {
-    case LOGIN_REQUEST:
+    case PREFFERED_HOURS_REQUEST:
       return {
         ...state,
       };
-    case LOGIN_SUCCESS:
+    case PREFFERED_HOURS_SUCCESS:
       const newAuthState = {
         user: action.payload.data,
         error: "",
-        isLoggedIn: true,
-        ab: false,
       };
-      localStorage.setItem("auth", JSON.stringify(newAuthState));
       return newAuthState;
-    case LOGIN_FAILURE:
+    case PREFFERED_HOURS_FAILURE:
       return {
         user: [],
         error: action.payload,
-        isLoggedIn: false,
-        ab: true,
       };
-    case LOGOUT_SUCCESS:
-      return userState;
-
-    case LOGOUT_FAIL:
-      return userState;
     default:
       return state;
   }

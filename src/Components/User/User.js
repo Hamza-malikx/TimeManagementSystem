@@ -7,11 +7,10 @@ import { Link } from "react-router-dom";
 const User = () => {
   const dispatch = useDispatch();
   const [loginState, setLoginState] = useState({});
-  console.log(loginState);
   return (
     <div className="container">
       <div className="row">
-        <div className="col-12">
+        <div className="col-12 ">
           <div className={styles.card}>
             <form
               onSubmit={(e) => {
@@ -49,7 +48,7 @@ const User = () => {
                   setLoginState({ ...loginState, ...{ description } });
                 }}
               />
-              <input type="submit" name="" value="Login" />
+              <input type="submit" name="" value="Create" />
               <Link to="/user/getlog">
                 <button className="btn btn-primary">Get Log</button>
               </Link>

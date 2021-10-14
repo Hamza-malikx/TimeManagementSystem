@@ -26,7 +26,6 @@ const getUserFailure = (error) => {
 
 const getUserData = () => {
   let token = JSON.parse(localStorage.getItem("auth"));
-  console.log("Token", token.user.token);
   return (dispatch) => {
     dispatch(getUserRequest);
     axios
@@ -38,7 +37,6 @@ const getUserData = () => {
       })
       .then((response) => {
         const userData = response.data;
-        console.log("...", userData);
         dispatch(getUserSuccess(userData));
       })
       .catch((error) => {

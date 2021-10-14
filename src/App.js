@@ -19,7 +19,6 @@ import ProtectedRouteUserLog from "./Components/ProtectedRoute/ProtectedRouteUse
 import GetUserLog from "./Components/User/GetUserLog";
 function App() {
   const props = useSelector((state) => state.loginReducer);
-  console.log(props.ab);
   return (
     <>
       <Router>
@@ -36,13 +35,6 @@ function App() {
             <Navbar />
             <Login />
           </Route>
-          {/* <Route path="/manager">
-            <Navbar />
-            <Manager />
-          </Route> */}
-          {/* <Route component={GetUserFromManager} path="/manager/user" /> */}
-          {/* <Route component={GetUserFromAdmin} path="/admin/user" /> */}
-          {/* <Route>No Page Found</Route> */}
           <ProtectedRouteManagerUser
             exact
             path="/manager/user"

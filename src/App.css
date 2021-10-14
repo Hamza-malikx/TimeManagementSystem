@@ -1,0 +1,40 @@
+.navbar-brand {
+  color: #ffffff !important;
+}
+
+.nav-item,
+.nav-link {
+  color: #ffffff !important;
+  background-color: #16151a;
+  border: none;
+}
+
+.btn-edit {
+  background-color: #015c92;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #fff;
+  margin-right: 10px;
+  border: none;
+}
+
+.btn-delete {
+  background-color: #cc2828;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #fff;
+  border: none;
+}
+.back {
+  background-color: rgb(230, 139, 152);
+  margin-top: 4px;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  padding: 6px 30px;
+}
+.back:hover {
+  background-color: transparent;
+  border: 1px solid rgb(230, 139, 152);
+  color: rgb(230, 139, 152);
+}

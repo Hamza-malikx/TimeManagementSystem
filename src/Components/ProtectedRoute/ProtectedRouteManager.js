@@ -15,7 +15,6 @@ const ProtectedRouteManager = ({
         if (isAuth && role === "manager") {
           return (
             <>
-              {/* {role === "manager" ? (ab = true) : null} */}
               <Navbar />
               <Component />
             </>

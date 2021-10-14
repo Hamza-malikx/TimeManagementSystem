@@ -27,6 +27,7 @@ const Manager = () => {
                     user
                   )
                 );
+                user.firstName = "";
                 setUser({
                   firstName: "",
                   lastName: "",
@@ -34,7 +35,7 @@ const Manager = () => {
                   password: "",
                   password_confirmation: "",
                 });
-                console.log("User created");
+                alert("User created Successfully");
               }}
               className={styles.box}
             >

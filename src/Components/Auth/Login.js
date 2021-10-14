@@ -12,7 +12,7 @@ const Login = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-12">
+        <div className="col-12 ">
           <div className={styles.card}>
             <form
               onSubmit={(e) => {

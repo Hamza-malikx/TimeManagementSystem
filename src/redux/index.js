@@ -6,6 +6,8 @@ import deleteUserAction from "./DeleteUser/deleteUserAction";
 import updateUserAction from "./UpdateUser/updateUserAction";
 import createWorkLogAction from "./CreateWorkLog/createWorkLogAction";
 import getUserLogsAction from "./getUserLogs/getUserLogsAction";
+import updateLogAction from "./UpdateLog/updateLogAction";
+import prefferedHoursAction from "./PrefferedHours/prefferedHoursAction";
 const allActions = {
   SignupAction,
   loginAction,
@@ -15,5 +17,7 @@ const allActions = {
   updateUserAction,
   createWorkLogAction,
   getUserLogsAction,
+  updateLogAction,
+  prefferedHoursAction,
 };
 export default allActions;

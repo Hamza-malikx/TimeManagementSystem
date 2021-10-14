@@ -21,8 +21,8 @@
 .customers th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
-  background-color: #04aa6d;
+  text-align: center;
+  background-color: #16151a;
   color: white;
 }
 /* Update */
@@ -35,7 +35,7 @@
   padding: 40px;
   margin: auto;
   /* transform: translate(-50%, -50%); */
-  background: rgba(0, 0, 0, 0.5);
+  background: #16151a;
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
   border-radius: 10px;

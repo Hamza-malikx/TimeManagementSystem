@@ -3,16 +3,15 @@ import { Link } from "react-router-dom";
 // import { LogOutAuthAction } from "../../redux/Login";
 import { useSelector, useDispatch } from "react-redux";
 import allActions from "../../redux";
+import styles from "./Navbar.module.css";
+
 import { useHistory } from "react-router";
 const Navbar = () => {
-  // console.log(props);
   const dispatch = useDispatch();
   const history = useHistory();
   const auth = useSelector((state) => state.loginReducer);
-  // console.log("Status,", isLogged.user.user[0].firstName);
-  // console.log("xxx", auth1);
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light ">
+    <nav className={`navbar navbar-expand-lg navbar-light  ${styles.navbar}`}>
       <div className="container">
         <Link className="navbar-brand" to="/">
           Time Management System
@@ -29,7 +28,10 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse " id="navbarSupportedContent">
+        <div
+          className="collapse navbar-collapse mt-2 "
+          id="navbarSupportedContent"
+        >
           <ul className="navbar-nav ms-auto">
             <li className="nav-item active">
               <Link className="nav-link" to="/">

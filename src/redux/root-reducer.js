@@ -7,6 +7,8 @@ import deleteUserType from "./DeleteUser/deleteUserReducer";
 import updateUserReducer from "./UpdateUser/updateUserReducer";
 import createWorkLogReducer from "./CreateWorkLog/createWorkLogReducer";
 import getUserLogsReducer from "./getUserLogs/getUserLogsReducer";
+import updateLogReducer from "./UpdateLog/updateLogReducer";
+import prefferedHoursType from "./PrefferedHours/prefferedHoursReducer";
 const rootReducer = combineReducers({
   SignupReducer,
   loginReducer,
@@ -16,5 +18,7 @@ const rootReducer = combineReducers({
   updateUserReducer,
   createWorkLogReducer,
   getUserLogsReducer,
+  updateLogReducer,
+  prefferedHoursType,
 });
 export default rootReducer;

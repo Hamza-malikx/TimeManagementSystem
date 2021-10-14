@@ -9,7 +9,6 @@ const ProtectedRoute = ({ isAuth, component: Component, role, ...rest }) => {
         if (isAuth && role === "admin") {
           return (
             <>
-              {console.log("xxx", role)}
               <Navbar />
               <Component />
             </>

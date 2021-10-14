@@ -37,7 +37,6 @@ const registerRegularUserData = (userRegState) => {
         },
       });
       const { data } = res;
-      console.log("HELO WORDL", token.user.token);
       dispatch(createUserSuccess(data));
     } catch (error) {
       console.error(error);

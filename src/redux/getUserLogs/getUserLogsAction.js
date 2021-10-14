@@ -29,8 +29,6 @@ const getUserLogsData = () => {
   return async (dispatch) => {
     try {
       let token = JSON.parse(localStorage.getItem("auth"));
-      console.log("Token", token.user.token);
-      // console.log("NAq", dispatch);
       dispatch(getUserLogsRequest);
       const config = {
         headers: {
@@ -40,10 +38,7 @@ const getUserLogsData = () => {
       };
       const api = "http://34.210.129.167/api/work-logs";
       var res = await axios.get(api, config);
-      const { data } = res;
       dispatch(getUserLogsSuccess(res));
-      // console.log("ab", state);
-      console.log("Successful", data);
     } catch (error) {
       console.error(error);
       dispatch(getUserLogsFailure(error.message));
