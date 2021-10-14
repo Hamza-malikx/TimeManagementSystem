@@ -1,6 +1,6 @@
 # Time Management System
 
-In this project user (Admin,User,Manager) is allowed to move freely in between Home, login and Signup page.Other than that each user can visit only his own routes.Otherwise, he will redirected
+In this project user (Admin,User,Manager) is allowed to move freely in between Home, login and Signup page when he is logged in.Other than that each user can visit only his own routes.Otherwise, he will redirected
 
 # Admin
 email:admin@iplex.com 
